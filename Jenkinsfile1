@@ -1,0 +1,23 @@
+@Library('shared-library@master') _
+pipeline {
+    agent any
+
+    stages {
+        stage("Build"){
+            steps{
+                buildSystems.mavenBuild()
+            }
+        }
+        stage("Dev") {
+            steps {
+                echo "Started stage Dev"
+            }
+        }
+
+        stage("Prod") {
+            steps {
+                echo "Started stage prod"
+            }
+        }
+    }
+}
